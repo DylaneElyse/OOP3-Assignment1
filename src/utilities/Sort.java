@@ -57,9 +57,27 @@ public class Sort
 
 	public static void selectionSort(Shape[] shapes)
 	{
-		// TODO Auto-generated method stub
+		long start, stop;
+		start = System.currentTimeMillis();
+
+	        for (int i = 0; i < shapes.length - 1; ++i) {
+	        	Shape max = shapes[i];
+	            for (int j = i; j < shapes.length; ++j) {
+	            	if (shapes[j].getHeight() > max.getHeight()) {
+	            		max = shapes[j];
+	            	}
+	            if (max.compareTo(shapes[i]) > 0 && (i != j)) { // descending
+		            Shape tmp = shapes[i];
+		            shapes[i] = shapes[j];
+		            shapes[j] = tmp;
+	            }        
+	            }            
+	        }            
 		
+        	stop = System.currentTimeMillis();
+        	System.out.println("Selection Sort run time was: " + (stop - start) + " miliseconds"); 
 	}
+	
 	public static <T> void selectionSort(T[] shapes, Comparator<T> c)
 	{
 		// TODO Auto-generated method stub
