@@ -22,10 +22,24 @@ public class Sort
 		
 	}
 
-	public static <T> void bubbleSort(T[] shapes, Comparator<T> c)
+	public static <T> void bubbleSort(Shape[] shapes, Comparator<Shape> c)
 	{
-		// TODO Auto-generated method stub
+		long start, stop;
 		
+		start = System.currentTimeMillis();
+
+        for (int i = 0; i < shapes.length - 1; ++i) {
+            for (int j = 0; j < (shapes.length - 1) - i; ++j) {
+                if (c.compare(shapes[j], shapes[j + 1]) < 0) { // descending
+                    Shape tmp = shapes[j];
+                    shapes[j] = shapes[j + 1];
+                    shapes[j + 1] = tmp;
+                }
+            }
+        }
+        stop = System.currentTimeMillis();
+        
+        System.out.println("Bubble Sort run time was: " + (stop - start) + " miliseconds");   		
 	}
 
 	public static void selectionSort(Shape[] shapes)
