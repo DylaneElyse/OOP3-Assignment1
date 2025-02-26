@@ -45,7 +45,7 @@ public class Sort
 			Shape key = array[i];
 	        int j = i - 1;
 
-            while (j >= 0 && array[j].compareTo(key) > 0) {
+            while (j >= 0 && array[j].compareTo(key) < 0) {
                 array[j + 1] = array[j];
                 j = j - 1;
             }
@@ -59,7 +59,7 @@ public class Sort
 	        int j = i - 1; // Index of the last element in the sorted portion
 
 	        // Shift elements greater than `key` to the right
-	        while (j >= 0 && c.compare(array[j], key) > 0) {
+	        while (j >= 0 && c.compare(array[j], key) < 0) {
 	            array[j + 1] = array[j];
 	            j = j - 1;
 	        }
@@ -101,8 +101,7 @@ public class Sort
 	    int i = low - 1; // Index of the smaller element
 
 	    for (int j = low; j < high; j++) {
-	        // If the current element is smaller than or equal to the pivot
-	        if (shapes[j].compareTo(pivot) <= 0) {
+	        if (shapes[j].compareTo(pivot) > 0) {
 	            i++;
 	            // Swap shapes[i] and shapes[j]
 	            Shape temp = shapes[i];
@@ -139,7 +138,7 @@ public class Sort
 	    int i = low - 1;
 
 	    for (int j = low; j < high; j++) {
-	        if (comparator.compare(array[j], pivot) <= 0) {
+	        if (comparator.compare(array[j], pivot) > 0) {
 	            i++;
 	            T temp = array[i];
 	            array[i] = array[j];
