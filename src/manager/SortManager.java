@@ -2,6 +2,7 @@ package manager;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Comparator;
 import java.util.Scanner;
 
 import shapes.*;
@@ -47,6 +48,7 @@ public class SortManager
 		shapesSorted = shapes.clone();
 		
 		sortShapes();
+		
 	}
 
 	/**
@@ -75,6 +77,8 @@ public class SortManager
 			{
 				Sort.radixSort(shapesSorted);
 			}
+			
+			printResults(shapesSorted);
 		}
 		else if(compareType == 'A' || compareType == 'a')
 		{
@@ -98,6 +102,8 @@ public class SortManager
 			{
 				Sort.radixSort(shapesSorted, bac);
 			}
+			
+			printResults(shapesSorted, bac);
 		}
 		else if(compareType == 'V' || compareType == 'v')
 		{
@@ -121,6 +127,8 @@ public class SortManager
 			{
 				Sort.radixSort(shapesSorted, vc);
 			}
+			
+			printResults(shapesSorted, vc);
 		}		
 	}
 
@@ -190,11 +198,48 @@ public class SortManager
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	private void printResults(Shape[] sortedShapes) {
+		int i = 1;
 		
+		for(Shape s: sortedShapes) {
+			if(i == 1) {
+				System.out.println(String.format("%-20s%30s%40s", "First element is: ", s.getClass(), "Height: " + s.getHeight()));
+				
+			} else if (i % 1000 == 0) {
+				System.out.println(String.format("%-20s%30s%40s", i + "-th element: ", s.getClass(), "Height: " + s.getHeight()));
+				
+			} else if (i == sortedShapes.length) {
+				System.out.println(String.format("%-20s%30s%40s", "Last element is: ", s.getClass(), "Height: " + s.getHeight()));
+			}	
+			i++;
+		}
+	}
 		
+	private void printResults(Shape[] sortedShapes, Comparator<Shape> c) {
+		int i = 1;
 		
-		
-		
+		String className = c.getClass().getName();
+		String compType = "";
+		if ( className.contains("Volume")) {
+			compType = "Volume";
+		} else if (className.contains("BaseArea")) {
+			compType = "Area";
+		}
+
+		for(Shape s: sortedShapes) {
+			if(i == 1) {
+				System.out.println(String.format("%-20s%30s%40s", "First element is: ", s.getClass(), compType + ": " + s.assignCalc(s, compType)));
+				
+			} else if (i % 1000 == 0) {
+				System.out.println(String.format("%-20s%30s%40s", i + "-th element: ", s.getClass(), compType + ": " + s.assignCalc(s, compType)));
+				
+			} else if (i == sortedShapes.length) {
+				System.out.println(String.format("%-20s%30s%40s", "Last element is: ", s.getClass(), compType + ": " + s.assignCalc(s, compType)));
+			}
+			i++;
+		}
 		
 		
 		

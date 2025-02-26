@@ -59,4 +59,13 @@ public abstract class Shape implements Comparable<Shape>
 				+ calcVolume() + "]";
 	}
 		
+	public <T> double assignCalc(T s, String value) {
+		if (value == "Volume") {
+			return ((Shape) s).calcVolume();
+		}
+		if (value == "Area") {
+			return ((Shape) s).calcBaseArea();
+		}
+		return 0.0;
+	}
 }
