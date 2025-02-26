@@ -2,6 +2,9 @@ package shapes;
 
 import java.util.Comparator;
 
+/**
+ * Represents a class that will calculate the base area of a shape
+ */
 public class BaseAreaCompare implements Comparator<Shape>
 {
 

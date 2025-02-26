@@ -1,5 +1,8 @@
 package utilities;
 
+/**
+ * Represents a class containing sort methods
+ */
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;

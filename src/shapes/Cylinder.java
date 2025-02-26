@@ -1,14 +1,18 @@
 package shapes;
 
+/**
+ * Represents a cylinder shape
+ */
 public class Cylinder extends Shape
 {
 	// attribute
 	private double radius;
 
 	/**
+	 * Creates a cylinder shape with a specified height and radius
 	 * 
-	 * @param height
-	 * @param radius
+	 * @param height height of the cylinder
+	 * @param radius radius of the cylinder
 	 */
 	public Cylinder(double height, double radius)
 	{
@@ -17,8 +21,9 @@ public class Cylinder extends Shape
 	}
 
 	/**
+	 * Method that returns the radius of the cylinder
 	 * 
-	 * @return
+	 * @return returns the radius of the cylinder
 	 */
 	public double getRadius()
 	{

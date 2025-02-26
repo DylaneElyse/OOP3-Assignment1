@@ -1,14 +1,18 @@
 package shapes;
 
+/**
+ * Represents a pyramid shape
+ */
 public class Pyramid extends Shape
 {
 	// attribute
 	private double side;
 
 	/**
+	 * Creates a pyramid shape with a specified height and radius
 	 * 
-	 * @param height
-	 * @param radius
+	 * @param height height of the pyramid
+	 * @param radius radius of the pyramid
 	 */
 	public Pyramid(double height, double edgeLength)
 	{
@@ -17,15 +21,15 @@ public class Pyramid extends Shape
 	}
 
 	/**
+	 * Method that returns the length of the side of the pyramid
 	 * 
-	 * @return
+	 * @return returns the side length of the pyramid
 	 */
 	public double getSide()
 	{
 		return side;
 	}
 
-	// if Override, it does not need javadoc
 	@Override
 	public double calcBaseArea()
 	{

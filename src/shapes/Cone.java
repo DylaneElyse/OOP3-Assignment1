@@ -1,14 +1,18 @@
 package shapes;
 
+/**
+ * Represents a cone shape
+ */
 public class Cone extends Shape
 {
 	// attribute
 	private double radius;
 
 	/**
+	 * Creates a cone shape with a specified height and radius
 	 * 
-	 * @param height
-	 * @param radius
+	 * @param height represents the height of the cone
+	 * @param radius represents the radius of the cone
 	 */
 	public Cone(double height, double radius)
 	{
@@ -17,15 +21,15 @@ public class Cone extends Shape
 	}
 
 	/**
+	 * Method that will return the radius of the cone
 	 * 
-	 * @return
+	 * @return returns the radius of the cone
 	 */
 	public double getRadius()
 	{
 		return radius;
 	}
 
-	// if Override, it does not need javadoc
 	@Override
 	public double calcBaseArea()
 	{

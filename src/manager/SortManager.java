@@ -7,31 +7,24 @@ import java.util.Scanner;
 import shapes.*;
 import utilities.Sort;
 
-// refer to demo001 BasicFileIO.java for a simple example on how to
-	// read data from a text file
-	
-	// refer to demo01 Test.java for an example on how to parse command
-	// line arguments and benchmarking tests
-// Test.java
-// complete (ish)
-	
-	// refer to demo02 Student.java for comparable implementation, and
-	// NameCompare.java or GradeCompare for comparator implementations
-	
-	// refer to demo02 KittySort.java on how to use a custom sorting
-	// algorithm on a list of comparables to sort using either the
-	// natural order (comparable) or other orders (comparators)
-
-
+/**
+ * Represents a class that will control the program and determine the sorting method
+ * 
+ */
 public class SortManager
 {
 
+	// attributes
 	private String fileName;
 	private char compareType;
 	private char sortType;
 	private Shape[] shapes;
 	private Shape[] shapesSorted;
 	
+	/**
+	 * Creates a sortManager to process through the code
+	 * @param args Arguments passed into the code through the CLI
+	 */
 	public SortManager(String[] args)
 	{
 		for(String s : args)
@@ -56,6 +49,9 @@ public class SortManager
 		sortShapes();
 	}
 
+	/**
+	 * Method that check the sort method and parameters and calls the sort method accordingly
+	 */
 	private void sortShapes()
 	{
 		if (compareType == 'H' || compareType == 'h')
@@ -128,6 +124,10 @@ public class SortManager
 		}		
 	}
 
+	/**
+	 * Method that accepts a file name as a String and loads the objects based on the information in the file
+	 * @param file File that holds the shape information
+	 */
 	private void loadShapes(String file)
 	{
 		
