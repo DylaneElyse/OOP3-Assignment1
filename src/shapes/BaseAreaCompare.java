@@ -15,5 +15,5 @@ public class BaseAreaCompare implements Comparator<Shape>
 		if(s1.calcBaseArea() < s2.calcBaseArea()) return -1;
 		return 0;
 	}
-
+	
 }

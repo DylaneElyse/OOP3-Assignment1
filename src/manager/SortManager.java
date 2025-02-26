@@ -75,6 +75,11 @@ public class SortManager
 			{
 				Sort.radixSort(shapesSorted);
 			}
+			System.out.println("Sorted by Height");
+			for (Shape s : shapesSorted)
+			{
+				System.out.println(s.getHeight());
+			}
 		}
 		else if(compareType == 'A' || compareType == 'a')
 		{
@@ -94,9 +99,14 @@ public class SortManager
 			} else if(sortType == 'Q' || sortType == 'q')
 			{
 				Sort.quickSort(shapesSorted, bac);
+				System.out.println("Sorted by Base Area");
 			} else if(sortType == 'Z' || sortType == 'z')
 			{
 				Sort.radixSort(shapesSorted, bac);
+			}
+			for (Shape s : shapesSorted)
+			{
+				System.out.println(s.calcBaseArea());
 			}
 		}
 		else if(compareType == 'V' || compareType == 'v')
@@ -111,6 +121,7 @@ public class SortManager
 			} else if(sortType == 'I' || sortType == 'i')
 			{
 				Sort.insertionSort(shapesSorted, vc);
+				System.out.println("Sorted by Volume");
 			} else if(sortType == 'M' || sortType == 'm')
 			{
 				Sort.mergeSort(shapesSorted, vc);
@@ -120,6 +131,10 @@ public class SortManager
 			} else if(sortType == 'Z' || sortType == 'z')
 			{
 				Sort.radixSort(shapesSorted, vc);
+			}
+			for (Shape s : shapesSorted)
+			{
+				System.out.println(s.calcVolume());
 			}
 		}		
 	}
