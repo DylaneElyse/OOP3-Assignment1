@@ -17,7 +17,7 @@ import shapes.VolumeCompare;
 public class Sort
 {
 
-	public static <T extends Comparable<T>> void bubbleSort(T[] shapes)
+	public static <T extends Comparable<Shape>> void bubbleSort(Shape[] shapes)
 	{
 		long start, stop;
 		start = System.currentTimeMillis();
@@ -78,10 +78,26 @@ public class Sort
         	System.out.println("Selection Sort run time was: " + (stop - start) + " miliseconds"); 
 	}
 	
-	public static <T> void selectionSort(T[] shapes, Comparator<T> c)
-	{
-		// TODO Auto-generated method stub
-		
+	public static <T> void selectionSort(Shape[] shapes, Comparator<Shape> c)
+	{		
+		long start, stop;
+		start = System.currentTimeMillis();
+
+	        for (int i = 0; i < shapes.length - 1; ++i) {
+	        	Shape max = shapes[i];
+	            for (int j = i; j < shapes.length; ++j) {
+	            	if (shapes[j].calcVolume() > max.calcVolume()) {
+	            		max = shapes[j];
+	            	}
+	            if (c.compare(shapes[i], max) < 0 && (i != j)) { // descending
+		            Shape tmp = shapes[i];
+		            shapes[i] = shapes[j];
+		            shapes[j] = tmp;
+	            }        
+	            }
+	        }         
+        	stop = System.currentTimeMillis();
+        	System.out.println("Selection Sort run time was: " + (stop - start) + " miliseconds");
 	}
 	
 	public static void insertionSort(Shape[] array)
