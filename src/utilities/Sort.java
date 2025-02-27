@@ -17,6 +17,14 @@ import shapes.VolumeCompare;
 public class Sort
 {
 
+	/**
+	 * This method processes through a Bubble Sort. It takes an array of shapes, and
+	 * compares each element with the one next to it. If the latter height is bigger,
+	 * they switch positions. A single iteration will place the smallest item in the
+	 * last position of the array. Then, we need to keep iterating to place the
+	 * smallest unsorted element at the end of the unsorted portion of the array.
+	 * @param shapes represents a list of shapes being passed into the method
+	 */
 	public static <T extends Comparable<Shape>> void bubbleSort(Shape[] shapes)
 	{
 		long start, stop;
@@ -36,6 +44,15 @@ public class Sort
 	        System.out.println("Bubble Sort run time was: " + (stop - start) + " miliseconds"); 
 	}
 
+	/**
+	 * This method processes through a Bubble Sort. It takes an array of shapes, and
+	 * compares each element with the one next to it. If the latter comparison factor
+	 * is bigger, they switch positions. A single iteration will place the smallest item
+	 * in the last position of the array. Then, we need to keep iterating to place the
+	 * smallest unsorted element at the end of the unsorted portion of the array.
+	 * @param shapes represents a list of shapes being passed into the method
+	 * @param c represents the compare type to be used for the sorting
+	 */
 	public static <T> void bubbleSort(Shape[] shapes, Comparator<Shape> c)
 	{
 		long start, stop;
@@ -43,7 +60,7 @@ public class Sort
 
 	        for (int i = 0; i < shapes.length - 1; ++i) {
 	            for (int j = 0; j < (shapes.length - 1) - i; ++j) {
-	                if (c.compare(shapes[j], shapes[j + 1]) < 0) { // descending
+	                if (c.compare(shapes[j], shapes[j + 1]) < 0) {
 	                    Shape tmp = shapes[j];
 	                    shapes[j] = shapes[j + 1];
 	                    shapes[j + 1] = tmp;
@@ -55,6 +72,14 @@ public class Sort
         	System.out.println("Bubble Sort run time was: " + (stop - start) + " miliseconds");   		
 	}
 
+	/**
+	 * This method processes through a Selection Sort. It takes an array of shapes, and
+	 * finds the item with the biggest height value. We iterate through the array scanning
+	 * for an element with a bigger height, and switches them when found. Therefore, after
+	 * each iteration the biggest value from the unsorted portion of the array is placed
+	 * in the last index of the sorted portion.
+ 	 * @param shapes represents a list of shapes being passed into the method
+	 */
 	public static void selectionSort(Shape[] shapes)
 	{
 		long start, stop;
@@ -66,7 +91,7 @@ public class Sort
 	            	if (shapes[j].getHeight() > max.getHeight()) {
 	            		max = shapes[j];
 	            	}
-	            if (max.compareTo(shapes[i]) > 0 && (i != j)) { // descending
+	            if (max.compareTo(shapes[i]) > 0 && (i != j)) {
 		            Shape tmp = shapes[i];
 		            shapes[i] = shapes[j];
 		            shapes[j] = tmp;
@@ -78,6 +103,15 @@ public class Sort
         	System.out.println("Selection Sort run time was: " + (stop - start) + " miliseconds"); 
 	}
 	
+	/**
+	 * This method processes through a Selection Sort. It takes an array of shapes, and
+	 * finds the item with the biggest value for the comparator factor. We iterate through
+	 * the array scanning for an element with a bigger value, and switches them when found.
+	 * Therefore, after each iteration the biggest value from the unsorted portion of the
+	 * array is placed in the last index of the sorted portion.
+ 	 * @param shapes represents a list of shapes being passed into the method
+ 	 * @param c represents the compare type to be used for the sorting
+	 */
 	public static <T> void selectionSort(Shape[] shapes, Comparator<Shape> c)
 	{		
 		long start, stop;
@@ -89,7 +123,7 @@ public class Sort
 	            	if (shapes[j].calcVolume() > max.calcVolume()) {
 	            		max = shapes[j];
 	            	}
-	            if (c.compare(shapes[i], max) < 0 && (i != j)) { // descending
+	            if (c.compare(shapes[i], max) < 0 && (i != j)) {
 		            Shape tmp = shapes[i];
 		            shapes[i] = shapes[j];
 		            shapes[j] = tmp;
@@ -134,6 +168,12 @@ public class Sort
 	    }
 	}
 
+	/**
+	 * This method processes through a Merge Sort. It takes an array of shapes, breaks
+	 * them down into smaller arrays until each contains only one element. Then, it merges
+	 * pair of arrays while ordering its elements.
+	 * @param shapes represents a list of shapes being passed into the method
+	 */
 	public static void mergeSort(Shape[] shapes)
 	{
 		long start, stop;
@@ -186,10 +226,18 @@ public class Sort
 				k++; j++;
 			}			 
 		
-		stop = System.currentTimeMillis();
-        	System.out.println("Bubble Sort run time was: " + (stop - start) + " miliseconds");   
+			stop = System.currentTimeMillis();
+        	System.out.println("Merge Sort run time was: " + (stop - start) + " miliseconds");   
 	}
 	
+	/**
+	 * This method processes through a Merge Sort. It takes an array of shapes, breaks
+	 * them down into smaller arrays until each contains only one element. Then, it merges
+	 * pair of arrays while ordering its elements. Such sorting process is done according
+	 * to the compare type that was entered.
+	 * @param shapes represents a list of shapes being passed into the method
+	 * @param c represents the compare type to be used for the sorting
+	 */
 	public static <T> void mergeSort(Shape[] shapes, Comparator<Shape> c)
 	{
 		long start, stop;
@@ -242,8 +290,8 @@ public class Sort
 				k++; j++;
 			}		
 		
-		stop = System.currentTimeMillis();
-        	System.out.println("Bubble Sort run time was: " + (stop - start) + " miliseconds");  
+			stop = System.currentTimeMillis();
+        	System.out.println("Merge Sort run time was: " + (stop - start) + " miliseconds");  
 	}
 
 	public static void quickSort(Shape[] shapes) {
