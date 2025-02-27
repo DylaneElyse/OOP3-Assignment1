@@ -326,6 +326,7 @@ public class Sort
       			int i = 0;
 	 			for(Shape s : shapes)
 				{
+	 				System.out.println("Object #: " + count + "." + i);
 	 				String value = String.valueOf((s.assignCalc(s, compType)));
 					Character digit = '0';
 					// if statement that checks if the length of the current compared String matches the maximum length
@@ -344,6 +345,7 @@ public class Sort
 						if(adjustedIndex >= 0 && count <= value.length()) {
 							digit = value.charAt(adjustedIndex);
 					} 
+					}
 					// if neither if statement applies, the digit index remains 0 as the length of the String is too short
 						
 					// switch case to sort the object into the proper bucket based on the digit at the desired index
@@ -378,12 +380,11 @@ public class Sort
 						case '9':
 							nine.add((Shape) s);
 							break;	
-					}
+					}					
 					// changes the object at the current index of the Array to null
 					shapes[i] = null;
 					i++;
 					// continues processing until the loop has sorted the each entry
-					}
 				}
 
 	 		// variable that holds the index for the next position for adding objects back into the Array
@@ -400,6 +401,8 @@ public class Sort
 				// clears the current arrayList so it is fresh for the next iteration 
 				list.clear();
 			}
+				System.out.println(count);
+
 			// adds 1 to the count of iterations
 			count++;
 			// subtracts 1 from the index for the next index location
