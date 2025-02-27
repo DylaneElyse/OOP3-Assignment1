@@ -28,9 +28,6 @@ public class Sort
 	 */
 	public static <T extends Comparable<Shape>> void bubbleSort(Shape[] shapes)
 	{
-		long start, stop;
-		start = System.currentTimeMillis();
-
 	        for (int i = 0; i < shapes.length - 1; ++i) {
 	            for (int j = 0; j < (shapes.length - 1) - i; ++j) {
 	                if (shapes[j].compareTo(shapes[j + 1]) < 0) { // descending
@@ -40,9 +37,6 @@ public class Sort
 	                }
 	            }
 	        }
-		
-	        stop = System.currentTimeMillis();
-	        System.out.println("Bubble Sort run time was: " + (stop - start) + " miliseconds"); 
 	}
 
 	/**
@@ -56,9 +50,6 @@ public class Sort
 	 */
 	public static <T> void bubbleSort(Shape[] shapes, Comparator<Shape> c)
 	{
-		long start, stop;
-		start = System.currentTimeMillis();
-
 	        for (int i = 0; i < shapes.length - 1; ++i) {
 	            for (int j = 0; j < (shapes.length - 1) - i; ++j) {
 	                if (c.compare(shapes[j], shapes[j + 1]) < 0) {
@@ -67,10 +58,7 @@ public class Sort
 	                    shapes[j + 1] = tmp;
 	                }
 	            }
-        	}
-		
-        	stop = System.currentTimeMillis();
-        	System.out.println("Bubble Sort run time was: " + (stop - start) + " miliseconds");   		
+        	}	
 	}
 
 	/**
@@ -83,9 +71,6 @@ public class Sort
 	 */
 	public static void selectionSort(Shape[] shapes)
 	{
-		long start, stop;
-		start = System.currentTimeMillis();
-
 	        for (int i = 0; i < shapes.length - 1; ++i) {
 	        	Shape max = shapes[i];
 	            for (int j = i; j < shapes.length; ++j) {
@@ -99,9 +84,6 @@ public class Sort
 	            }        
 	            }            
 	        }            
-		
-        	stop = System.currentTimeMillis();
-        	System.out.println("Selection Sort run time was: " + (stop - start) + " miliseconds"); 
 	}
 	
 	/**
@@ -115,9 +97,6 @@ public class Sort
 	 */
 	public static <T> void selectionSort(Shape[] shapes, Comparator<Shape> c)
 	{		
-		long start, stop;
-		start = System.currentTimeMillis();
-
 	        for (int i = 0; i < shapes.length - 1; ++i) {
 	        	Shape max = shapes[i];
 	            for (int j = i; j < shapes.length; ++j) {
@@ -131,8 +110,6 @@ public class Sort
 	            }        
 	            }
 	        }         
-        	stop = System.currentTimeMillis();
-        	System.out.println("Selection Sort run time was: " + (stop - start) + " miliseconds");
 	}
 	
 	public static void insertionSort(Shape[] array)
@@ -177,9 +154,6 @@ public class Sort
 	 */
 	public static void mergeSort(Shape[] shapes)
 	{
-		long start, stop;
-		start = System.currentTimeMillis();
-
 		int shapesLength = shapes.length;
 		
 		if (shapesLength < 2) {
@@ -226,9 +200,6 @@ public class Sort
 				shapes[k] = rightHalf[j];
 				k++; j++;
 			}			 
-		
-			stop = System.currentTimeMillis();
-        	System.out.println("Merge Sort run time was: " + (stop - start) + " miliseconds");   
 	}
 	
 	/**
@@ -241,9 +212,6 @@ public class Sort
 	 */
 	public static <T> void mergeSort(Shape[] shapes, Comparator<Shape> c)
 	{
-		long start, stop;
-		start = System.currentTimeMillis();
- 
 		int shapesLength = shapes.length;
 		
 		if (shapesLength < 2) {
@@ -290,9 +258,6 @@ public class Sort
 				shapes[k] = rightHalf[j];
 				k++; j++;
 			}		
-		
-			stop = System.currentTimeMillis();
-        	System.out.println("Merge Sort run time was: " + (stop - start) + " miliseconds");  
 	}
 
 	public static void quickSort(Shape[] shapes) {
