@@ -136,14 +136,103 @@ public class Sort
 
 	public static void mergeSort(Shape[] shapes)
 	{
-		// TODO Auto-generated method stub
+		int shapesLength = shapes.length;
 		
+		if (shapesLength < 2) {
+			return;
+		}
+		
+		int midIndex = shapesLength / 2;
+		Shape[] leftHalf = new Shape[midIndex];
+		Shape[] rightHalf = new Shape[shapesLength - midIndex];
+		
+		for (int i=0; i < midIndex; i++) {
+			leftHalf[i] = shapes[i];
+		}
+		for (int i = midIndex; i < shapesLength ; i++) {
+			rightHalf[i - midIndex] = shapes[i];
+		}
+		
+		mergeSort(leftHalf);
+		mergeSort(rightHalf);
+
+			int leftSize = leftHalf.length;
+			int rightSize = rightHalf.length;
+			int i=0, j=0, k=0;
+			
+			while (i < leftSize && j < rightSize) {
+				if (leftHalf[i].compareTo(rightHalf[j]) > 0) {
+					shapes[k] = leftHalf[i];
+					i++;
+				}
+				else {
+					shapes[k] = rightHalf[j];
+					j++;
+				}
+				k++;
+			}
+			
+			while (i < leftSize)
+			{
+				shapes[k] = leftHalf[i];
+				k++; i++;
+			}
+				
+			while (j < rightSize) {
+				shapes[k] = rightHalf[j];
+				k++; j++;
+			}			
 	}
 	
-	public static <T> void mergeSort(T[] shapes, Comparator<T> c)
+	public static <T> void mergeSort(Shape[] shapes, Comparator<Shape> c)
 	{
-		// TODO Auto-generated method stub
+		int shapesLength = shapes.length;
 		
+		if (shapesLength < 2) {
+			return;
+		}
+		
+		int midIndex = shapesLength / 2;
+		Shape[] leftHalf = new Shape[midIndex];
+		Shape[] rightHalf = new Shape[shapesLength - midIndex];
+		
+		for (int i=0; i < midIndex; i++) {
+			leftHalf[i] = shapes[i];
+		}
+		for (int i = midIndex; i < shapesLength ; i++) {
+			rightHalf[i - midIndex] = shapes[i];
+		}
+		
+		mergeSort(leftHalf);
+		mergeSort(rightHalf);
+
+			int leftSize = leftHalf.length;
+			int rightSize = rightHalf.length;
+			int i=0, j=0, k=0;
+			
+			while (i < leftSize && j < rightSize) {
+				if (c.compare(leftHalf[i], rightHalf[j]) > 0) {
+					shapes[k] = leftHalf[i];
+					i++;
+				}
+				else {
+					shapes[k] = rightHalf[j];
+					j++;
+				}
+				k++;
+			}
+			
+			while (i < leftSize)
+			{
+				shapes[k] = leftHalf[i];
+				k++; i++;
+			}
+				
+			while (j < rightSize) {
+				shapes[k] = rightHalf[j];
+				k++; j++;
+			}		
+					
 	}
 
 	public static void quickSort(Shape[] shapes) {
