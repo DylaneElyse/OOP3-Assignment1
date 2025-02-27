@@ -48,7 +48,7 @@ public class Sort
 	 * @param shapes represents a list of shapes being passed into the method
 	 * @param c represents the compare type to be used for the sorting
 	 */
-	public static <T> void bubbleSort(Shape[] shapes, Comparator<Shape> c)
+	public static void bubbleSort(Shape[] shapes, Comparator<Shape> c)
 	{
 	        for (int i = 0; i < shapes.length - 1; ++i) {
 	            for (int j = 0; j < (shapes.length - 1) - i; ++j) {
@@ -95,7 +95,7 @@ public class Sort
  	 * @param shapes represents a list of shapes being passed into the method
  	 * @param c represents the compare type to be used for the sorting
 	 */
-	public static <T> void selectionSort(Shape[] shapes, Comparator<Shape> c)
+	public static void selectionSort(Shape[] shapes, Comparator<Shape> c)
 	{		
 	        for (int i = 0; i < shapes.length - 1; ++i) {
 	        	Shape max = shapes[i];
@@ -146,7 +146,7 @@ public class Sort
 	    }
 	}
 
-	/**
+		/**
 	 * This method processes through a Merge Sort. It takes an array of shapes, breaks
 	 * them down into smaller arrays until each contains only one element. Then, it merges
 	 * pair of arrays while ordering its elements.
@@ -222,7 +222,7 @@ public class Sort
 	 * @param shapes represents a list of shapes being passed into the method
 	 * @param c represents the compare type to be used for the sorting
 	 */
-	public static <T> void mergeSort(Shape[] shapes, Comparator<Shape> c)
+	public static void mergeSort(Shape[] shapes, Comparator<Shape> c)
 	{
 		int shapesLength = shapes.length;
 		
@@ -241,8 +241,8 @@ public class Sort
 			rightHalf[i - midIndex] = shapes[i];
 		}
 		
-		mergeSort(leftHalf);
-		mergeSort(rightHalf);
+		mergeSort(leftHalf, c);
+		mergeSort(rightHalf, c);
 		merge_c(shapes, leftHalf, rightHalf, c);
 	}
 	
