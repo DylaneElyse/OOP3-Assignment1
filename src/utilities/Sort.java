@@ -1,12 +1,13 @@
 package utilities;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 /**
  * Represents a class containing sort methods
  */
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -475,10 +476,10 @@ public class Sort
 	        }
 
 	        // Debugging: Print the number of shapes in each bucket
-	        System.out.println("Iteration " + count + ":");
-	        for (Map.Entry<Integer, ArrayList<Shape>> entry : numbersMap.entrySet()) {
-	            System.out.println("Bucket " + entry.getKey() + ": " + entry.getValue().size() + " shapes");
-	        }
+//	        System.out.println("Iteration " + count + ":");
+//	        for (Map.Entry<Integer, ArrayList<Shape>> entry : numbersMap.entrySet()) {
+//	            System.out.println("Bucket " + entry.getKey() + ": " + entry.getValue().size() + " shapes");
+//	        }
 
 	        // Increment count and adjust index
 	        count++;
@@ -644,5 +645,47 @@ public class Sort
 	    return adjustedIndex;
 	}
 
+	public static String timeTracker(Shape[] shapes, String methodName, Comparator<Shape> comparator) {
+        long start, stop;
+        long elapsedTime = 0;
 
+        try {
+            // Get the method using reflection
+            Method method;
+            if (comparator == null) {
+                // Get the method without Comparator parameter
+                method = Sort.class.getMethod(methodName, Shape[].class);
+            } else {
+                // Get the method with Comparator parameter
+                method = Sort.class.getMethod(methodName, Shape[].class, Comparator.class);
+            }
+
+            // Start the timer
+            start = System.currentTimeMillis();
+
+            // Invoke the method dynamically
+            if (comparator == null) {
+                method.invoke(null, (Object) shapes); // Call method without Comparator
+            } else {
+                method.invoke(null, shapes, comparator); // Call method with Comparator
+            }
+
+            // Stop the timer
+            stop = System.currentTimeMillis();
+
+            // Calculate elapsed time
+            elapsedTime = stop - start;
+
+            // Print the result
+        } catch (NoSuchMethodException e) {
+            System.err.println("Method '" + methodName + "' not found.");
+        } catch (IllegalAccessException e) {
+            System.err.println("Cannot access method '" + methodName + "'.");
+        } catch (InvocationTargetException e) {
+            System.err.println("Exception occurred while executing method '" + methodName + "': " + e.getCause());
+        }
+
+        // Return the elapsed time (optional)
+        return methodName + " run time was: " + elapsedTime + " milliseconds";
+    }
 }

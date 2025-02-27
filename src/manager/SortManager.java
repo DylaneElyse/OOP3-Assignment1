@@ -21,6 +21,7 @@ public class SortManager
 	private char sortType;
 	private Shape[] shapes;
 	private Shape[] shapesSorted;
+	private String timeString;
 	
 	/**
 	 * Creates a sortManager to process through the code
@@ -30,7 +31,6 @@ public class SortManager
 	{
 		for(String s : args)
 		{
-			System.out.println(s);
 			if(s.startsWith("-f") || s.startsWith("-F"))
 			{
 				fileName = s.substring(2);
@@ -48,7 +48,8 @@ public class SortManager
 		shapesSorted = shapes.clone();
 		
 		sortShapes();
-		
+		System.out.println(timeString);
+
 	}
 
 	/**
@@ -60,49 +61,48 @@ public class SortManager
 		{
 			if(sortType == 'B' || sortType == 'b')
 			{
-				Sort.bubbleSort(shapesSorted);
+				timeString = Sort.timeTracker(shapesSorted, "bubbleSort", null);
 			} else if(sortType == 'S' || sortType == 's')
 			{
-				Sort.selectionSort(shapesSorted);
+				timeString = Sort.timeTracker(shapesSorted, "selectionSort", null);
 			} else if(sortType == 'I' || sortType == 'i')
 			{
-				Sort.insertionSort(shapesSorted);
+				timeString = Sort.timeTracker(shapesSorted, "insertionSort", null);
 			} else if(sortType == 'M' || sortType == 'm')
 			{
-				Sort.mergeSort(shapesSorted);
+				timeString = Sort.timeTracker(shapesSorted, "mergeSort", null);
 			} else if(sortType == 'Q' || sortType == 'q')
 			{
-				Sort.quickSort(shapesSorted);
+				timeString = Sort.timeTracker(shapesSorted, "quickSort", null);
 			} else if(sortType == 'Z' || sortType == 'z')
 			{
-				Sort.radixSort(shapesSorted);
+				timeString = Sort.timeTracker(shapesSorted, "radixSort", null);
 			}
-			
 			printResults(shapesSorted);
+
 		}
 		else if(compareType == 'A' || compareType == 'a')
 		{
 			BaseAreaCompare bac = new BaseAreaCompare();
 			if(sortType == 'B' || sortType == 'b')
 			{
-				Sort.bubbleSort(shapesSorted, bac);
+				timeString = Sort.timeTracker(shapesSorted, "bubbleSort", bac);
 			} else if(sortType == 'S' || sortType == 's')
 			{
-				Sort.selectionSort(shapesSorted, bac);
+				timeString = Sort.timeTracker(shapesSorted, "selectionSort", bac);
 			} else if(sortType == 'I' || sortType == 'i')
 			{
-				Sort.insertionSort(shapesSorted, bac);
+				timeString = Sort.timeTracker(shapesSorted, "insertionSort", bac);
 			} else if(sortType == 'M' || sortType == 'm')
 			{
-				Sort.mergeSort(shapesSorted, bac);
+				timeString = Sort.timeTracker(shapesSorted, "mergeSort", bac);
 			} else if(sortType == 'Q' || sortType == 'q')
 			{
-				Sort.quickSort(shapesSorted, bac);
+				timeString = Sort.timeTracker(shapesSorted, "quickSort", bac);
 			} else if(sortType == 'Z' || sortType == 'z')
 			{
-				Sort.radixSort(shapesSorted, bac);
+				timeString = Sort.timeTracker(shapesSorted, "radixSort", bac);
 			}
-			
 			printResults(shapesSorted, bac);
 		}
 		else if(compareType == 'V' || compareType == 'v')
@@ -110,24 +110,23 @@ public class SortManager
 			VolumeCompare vc = new VolumeCompare();
 			if(sortType == 'B' || sortType == 'b')
 			{
-				Sort.bubbleSort(shapesSorted, vc);
+				timeString = Sort.timeTracker(shapesSorted, "bubbleSort", vc);
 			} else if(sortType == 'S' || sortType == 's')
 			{
-				Sort.selectionSort(shapesSorted, vc);
+				timeString = Sort.timeTracker(shapesSorted, "selectionSort", vc);
 			} else if(sortType == 'I' || sortType == 'i')
 			{
-				Sort.insertionSort(shapesSorted, vc);
+				timeString = Sort.timeTracker(shapesSorted, "insertionSort", vc);
 			} else if(sortType == 'M' || sortType == 'm')
 			{
-				Sort.mergeSort(shapesSorted, vc);
+				timeString = Sort.timeTracker(shapesSorted, "mergeSort", vc);
 			} else if(sortType == 'Q' || sortType == 'q')
 			{
-				Sort.quickSort(shapesSorted, vc);
+				timeString = Sort.timeTracker(shapesSorted, "quickSort", vc);
 			} else if(sortType == 'Z' || sortType == 'z')
 			{
-				Sort.radixSort(shapesSorted, vc);
+				timeString = Sort.timeTracker(shapesSorted, "radixSort", vc);
 			}
-			
 			printResults(shapesSorted, vc);
 		}		
 	}
@@ -202,15 +201,13 @@ public class SortManager
 	
 	private void printResults(Shape[] sortedShapes) {
 		int i = 1;
-		
 		for(Shape s: sortedShapes) {
 			if(i == 1) {
-				System.out.println(String.format("%-20s%30s%40s", "First element is: ", s.getClass(), "Height: " + s.getHeight()));
+				System.out.println(String.format("%-20s%-30s%-40s", "First element is: ", s.getClass(), "Height: " + s.getHeight()));
 			} else if (i == sortedShapes.length) {
-				System.out.println(String.format("%-20s%30s%40s", "Last element is: ", s.getClass(), "Height: " + s.getHeight()));
+				System.out.println(String.format("%-20s%-30s%-40s", "Last element is: ", s.getClass(), "Height: " + s.getHeight()));
 			} else if (i % 1000 == 0) {
-				System.out.println(String.format("%-20s%30s%40s", i + "-th element: ", s.getClass(), "Height: " + s.getHeight()));
-				
+				System.out.println(String.format("%-20s%-30s%-40s", i + "-th element: ", s.getClass(), "Height: " + s.getHeight()));
 			} 	
 			i++;
 		}
@@ -218,7 +215,6 @@ public class SortManager
 		
 	private void printResults(Shape[] sortedShapes, Comparator<Shape> c) {
 		int i = 1;
-		
 		String className = c.getClass().getName();
 		String compType = "";
 		if ( className.contains("Volume")) {
@@ -226,25 +222,16 @@ public class SortManager
 		} else if (className.contains("BaseArea")) {
 			compType = "Area";
 		}
-
 		for(Shape s: sortedShapes) {
 			if(i == 1) {
-				System.out.println(String.format("%-20s%30s%40s", "First element is: ", s.getClass(), compType + ": " + s.assignCalc(s, compType)));
+				System.out.println(String.format("%-20s%-30s%-40s", "First element is: ", s.getClass(), compType + ": " + s.assignCalc(s, compType)));
 				
 			} else if (i == sortedShapes.length) {
-				System.out.println(String.format("%-20s%30s%40s", "Last element is: ", s.getClass(), compType + ": " + s.assignCalc(s, compType)));
+				System.out.println(String.format("%-20s%-30s%-40s", "Last element is: ", s.getClass(), compType + ": " + s.assignCalc(s, compType)));
 			} else if (i % 1000 == 0) {
-				System.out.println(String.format("%-20s%30s%40s", i + "-th element: ", s.getClass(), compType + ": " + s.assignCalc(s, compType)));
-				
+				System.out.println(String.format("%-20s%-30s%-40s", i + "-th element: ", s.getClass(), compType + ": " + s.assignCalc(s, compType)));
 			} 
 			i++;
 		}
-		
-		
-		
-		
-		
-		
-		
 	}
 }
