@@ -30,7 +30,7 @@ public class Sort
 	{
 	        for (int i = 0; i < shapes.length - 1; ++i) {
 	            for (int j = 0; j < (shapes.length - 1) - i; ++j) {
-	                if (shapes[j].compareTo(shapes[j + 1]) < 0) { // descending
+	                if (shapes[j].compareTo(shapes[j + 1]) < 0) {
 	                    Shape tmp = shapes[j];
 	                    shapes[j] = shapes[j + 1];
 	                    shapes[j + 1] = tmp;
@@ -173,6 +173,18 @@ public class Sort
 		
 		mergeSort(leftHalf);
 		mergeSort(rightHalf);
+		merge(shapes, leftHalf, rightHalf);
+	}
+	
+	/**
+	 * This method merges pair of arrays while ordering its elements based on
+	 * the height of each element.
+	 * @param shapes represents a list of shapes being passed into the method
+	 * @param leftHalf represents a list of shapes being passed into the method
+	 * @param rightHalf represents a list of shapes being passed into the method
+	 */
+	public static void merge(Shape[] shapes, Shape[] leftHalf, Shape[] rightHalf) {
+		
 
 			int leftSize = leftHalf.length;
 			int rightSize = rightHalf.length;
@@ -231,6 +243,17 @@ public class Sort
 		
 		mergeSort(leftHalf);
 		mergeSort(rightHalf);
+		merge_c(shapes, leftHalf, rightHalf, c);
+	}
+	
+	/**
+	 * This method merges pair of arrays while ordering its elements based of
+	 * the value associated to a comparator factor.
+	 * @param shapes represents a list of shapes being passed into the method
+	 * @param leftHalf represents a list of shapes being passed into the method
+	 * @param rightHalf represents a list of shapes being passed into the method
+	 */
+	public static void merge_c(Shape[] shapes, Shape[] leftHalf, Shape[] rightHalf, Comparator<Shape> c) {
 
 			int leftSize = leftHalf.length;
 			int rightSize = rightHalf.length;
@@ -259,6 +282,7 @@ public class Sort
 				k++; j++;
 			}		
 	}
+
 
 	public static void quickSort(Shape[] shapes) {
 	    if (shapes == null || shapes.length == 0) {
