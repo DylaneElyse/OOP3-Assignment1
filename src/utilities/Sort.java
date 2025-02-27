@@ -100,16 +100,38 @@ public class Sort
         	System.out.println("Selection Sort run time was: " + (stop - start) + " miliseconds");
 	}
 	
-	public static void insertionSort(Shape[] shapes)
+	public static void insertionSort(Shape[] array)
 	{
-		// TODO Auto-generated method stub
-		
-	}
+		long start, stop;
+		start = System.currentTimeMillis();
+		for (int i = 1; i < array.length; i++) {
+			Shape key = array[i];
+	        int j = i - 1;
 
-	public static <T> void insertionSort(T[] shapes, Comparator<T> c)
-	{
-		// TODO Auto-generated method stub
-		
+            while (j >= 0 && array[j].compareTo(key) < 0) {
+                array[j + 1] = array[j];
+                j = j - 1;
+            }
+            array[j + 1] = key;
+        }
+		        stop = System.currentTimeMillis();
+		        System.out.println("Insertion Sort run time was: " + (stop - start) + " miliseconds");
+    }
+	
+	public static void insertionSort(Shape[] array, Comparator<Shape> c) {
+	    for (int i = 1; i < array.length; i++) {
+	        Shape key = array[i]; // Current element to be inserted
+	        int j = i - 1; // Index of the last element in the sorted portion
+
+	        // Shift elements greater than `key` to the right
+	        while (j >= 0 && c.compare(array[j], key) < 0) {
+	            array[j + 1] = array[j];
+	            j = j - 1;
+	        }
+
+	        // Insert `key` into its correct position
+	        array[j + 1] = key;
+	    }
 	}
 
 	public static void mergeSort(Shape[] shapes)
@@ -124,18 +146,77 @@ public class Sort
 		
 	}
 
-	public static void quickSort(Shape[] shapes)
-	{
-		// TODO Auto-generated method stub
-		
-	}
-	
-	public static <T> void quickSort(T[] shapes, Comparator<T> c)
-	{
-		// TODO Auto-generated method stub
-		
+	public static void quickSort(Shape[] shapes) {
+	    if (shapes == null || shapes.length == 0) {
+	        return; // Handle empty or null array
+	    }
+	    quickSort(shapes, 0, shapes.length - 1);
 	}
 
+	private static void quickSort(Shape[] shapes, int low, int high) {
+	    if (low < high) {
+	        int partitionIndex = partition(shapes, low, high);
+	        quickSort(shapes, low, partitionIndex - 1); // Sort left subarray
+	        quickSort(shapes, partitionIndex + 1, high); // Sort right subarray
+	    }
+	}
+
+	private static int partition(Shape[] shapes, int low, int high) {
+	    Shape pivot = shapes[high]; // Choose the last element as the pivot
+	    int i = low - 1; // Index of the smaller element
+
+	    for (int j = low; j < high; j++) {
+	        if (shapes[j].compareTo(pivot) > 0) {
+	            i++;
+	            // Swap shapes[i] and shapes[j]
+	            Shape temp = shapes[i];
+	            shapes[i] = shapes[j];
+	            shapes[j] = temp;
+	        }
+	    }
+
+	    // Swap shapes[i + 1] and shapes[high] (pivot)
+	    Shape temp = shapes[i + 1];
+	    shapes[i + 1] = shapes[high];
+	    shapes[high] = temp;
+
+	    return i + 1; // Return the partition index
+	}
+	
+	public static <T> void quickSort(T[] array, Comparator<T> comparator) {
+	    if (array == null || array.length == 0) {
+	        return;
+	    }
+	    quickSort(array, 0, array.length - 1, comparator);
+	}
+
+	private static <T> void quickSort(T[] array, int low, int high, Comparator<T> comparator) {
+	    if (low < high) {
+	        int partitionIndex = partition(array, low, high, comparator);
+	        quickSort(array, low, partitionIndex - 1, comparator);
+	        quickSort(array, partitionIndex + 1, high, comparator);
+	    }
+	}
+
+	private static <T> int partition(T[] array, int low, int high, Comparator<T> comparator) {
+	    T pivot = array[high];
+	    int i = low - 1;
+
+	    for (int j = low; j < high; j++) {
+	        if (comparator.compare(array[j], pivot) > 0) {
+	            i++;
+	            T temp = array[i];
+	            array[i] = array[j];
+	            array[j] = temp;
+	        }
+	    }
+
+	    T temp = array[i + 1];
+	    array[i + 1] = array[high];
+	    array[high] = temp;
+
+	    return i + 1;
+	}
 	/**
 	 * This method processes through a Radix Sort. It takes a list of numbers, sorts them into buckets based off of the digit in a specific index in the number.
 	 * @param shapes represents and Array of Shapes
