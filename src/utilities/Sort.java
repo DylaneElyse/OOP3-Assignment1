@@ -136,6 +136,9 @@ public class Sort
 
 	public static void mergeSort(Shape[] shapes)
 	{
+		long start, stop;
+		start = System.currentTimeMillis();
+
 		int shapesLength = shapes.length;
 		
 		if (shapesLength < 2) {
@@ -181,11 +184,17 @@ public class Sort
 			while (j < rightSize) {
 				shapes[k] = rightHalf[j];
 				k++; j++;
-			}			
+			}			 
+		
+		stop = System.currentTimeMillis();
+        	System.out.println("Bubble Sort run time was: " + (stop - start) + " miliseconds");   
 	}
 	
 	public static <T> void mergeSort(Shape[] shapes, Comparator<Shape> c)
 	{
+		long start, stop;
+		start = System.currentTimeMillis();
+ 
 		int shapesLength = shapes.length;
 		
 		if (shapesLength < 2) {
@@ -232,7 +241,9 @@ public class Sort
 				shapes[k] = rightHalf[j];
 				k++; j++;
 			}		
-					
+		
+		stop = System.currentTimeMillis();
+        	System.out.println("Bubble Sort run time was: " + (stop - start) + " miliseconds");  
 	}
 
 	public static void quickSort(Shape[] shapes) {
