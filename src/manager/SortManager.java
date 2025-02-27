@@ -206,13 +206,12 @@ public class SortManager
 		for(Shape s: sortedShapes) {
 			if(i == 1) {
 				System.out.println(String.format("%-20s%30s%40s", "First element is: ", s.getClass(), "Height: " + s.getHeight()));
-				
+			} else if (i == sortedShapes.length) {
+				System.out.println(String.format("%-20s%30s%40s", "Last element is: ", s.getClass(), "Height: " + s.getHeight()));
 			} else if (i % 1000 == 0) {
 				System.out.println(String.format("%-20s%30s%40s", i + "-th element: ", s.getClass(), "Height: " + s.getHeight()));
 				
-			} else if (i == sortedShapes.length) {
-				System.out.println(String.format("%-20s%30s%40s", "Last element is: ", s.getClass(), "Height: " + s.getHeight()));
-			}	
+			} 	
 			i++;
 		}
 	}
@@ -232,12 +231,12 @@ public class SortManager
 			if(i == 1) {
 				System.out.println(String.format("%-20s%30s%40s", "First element is: ", s.getClass(), compType + ": " + s.assignCalc(s, compType)));
 				
+			} else if (i == sortedShapes.length) {
+				System.out.println(String.format("%-20s%30s%40s", "Last element is: ", s.getClass(), compType + ": " + s.assignCalc(s, compType)));
 			} else if (i % 1000 == 0) {
 				System.out.println(String.format("%-20s%30s%40s", i + "-th element: ", s.getClass(), compType + ": " + s.assignCalc(s, compType)));
 				
-			} else if (i == sortedShapes.length) {
-				System.out.println(String.format("%-20s%30s%40s", "Last element is: ", s.getClass(), compType + ": " + s.assignCalc(s, compType)));
-			}
+			} 
 			i++;
 		}
 		
