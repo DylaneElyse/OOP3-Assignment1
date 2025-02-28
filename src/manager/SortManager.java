@@ -224,7 +224,7 @@ public class SortManager
 	}
 	
 	/**
-	 * Method that prints the results of the sorting algorithm
+	 * Method that prints the results of the sorting algorithm when also passed a comparator
 	 * @param sortedShapes Array of shapes that have been sorted
 	 * @param c Comparator that is used to sort the shapes
 	 */

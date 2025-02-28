@@ -22,6 +22,7 @@ public class Sort
 	 * last position of the array. Then, we need to keep iterating to place the
 	 * smallest unsorted element at the end of the unsorted portion of the array.
 	 * @param shapes represents a list of shapes being passed into the method
+	 * @author from ThePrimeagen at FrontendMasters, edited by Rodrigo Rangel
 	 */
 	public static <T extends Comparable<Shape>> void bubbleSort(Shape[] shapes)
 	{
@@ -44,6 +45,7 @@ public class Sort
 	 * smallest unsorted element at the end of the unsorted portion of the array.
 	 * @param shapes represents a list of shapes being passed into the method
 	 * @param c represents the compare type to be used for the sorting
+	 * @author from ThePrimeagen at FrontendMasters, edited by Rodrigo Rangel
 	 */
 	public static void bubbleSort(Shape[] shapes, Comparator<Shape> c)
 	{
@@ -65,6 +67,7 @@ public class Sort
 	 * each iteration the biggest value from the unsorted portion of the array is placed
 	 * in the last index of the sorted portion.
  	 * @param shapes represents a list of shapes being passed into the method
+ 	 * @author from CS50, edited by Rodrigo Rangel
 	 */
 	public static void selectionSort(Shape[] shapes)
 	{
@@ -91,6 +94,7 @@ public class Sort
 	 * array is placed in the last index of the sorted portion.
  	 * @param shapes represents a list of shapes being passed into the method
  	 * @param c represents the compare type to be used for the sorting
+ 	 * @author from CS50, edited by Rodrigo Rangel
 	 */
 	public static void selectionSort(Shape[] shapes, Comparator<Shape> c)
 	{		
@@ -156,6 +160,7 @@ public class Sort
 	 * them down into smaller arrays until each contains only one element. Then, it merges
 	 * pair of arrays while ordering its elements.
 	 * @param shapes represents a list of shapes being passed into the method
+	 * @author from "Coding with John", edited by Rodrigo Rangel
 	 */
 	public static void mergeSort(Shape[] shapes)
 	{
@@ -187,6 +192,7 @@ public class Sort
 	 * @param shapes represents a list of shapes being passed into the method
 	 * @param leftHalf represents a list of shapes being passed into the method
 	 * @param rightHalf represents a list of shapes being passed into the method
+	 * @author from "Coding with John", edited by Rodrigo Rangel
 	 */
 	public static void merge(Shape[] shapes, Shape[] leftHalf, Shape[] rightHalf) {
 			int leftSize = leftHalf.length;
@@ -223,6 +229,7 @@ public class Sort
 	 * to the compare type that was entered.
 	 * @param shapes represents a list of shapes being passed into the method
 	 * @param c represents the compare type to be used for the sorting
+	 * @author from "Coding with John", edited by Rodrigo Rangel
 	 */
 	public static void mergeSort(Shape[] shapes, Comparator<Shape> c)
 	{
@@ -254,6 +261,7 @@ public class Sort
 	 * @param shapes represents a list of shapes being passed into the method
 	 * @param leftHalf represents a list of shapes being passed into the method
 	 * @param rightHalf represents a list of shapes being passed into the method
+	 * @author from "Coding with John", edited by Rodrigo Rangel
 	 */
 	public static void merge_c(Shape[] shapes, Shape[] leftHalf, Shape[] rightHalf, Comparator<Shape> c) {
 
@@ -289,7 +297,7 @@ public class Sort
 	 * chooses the last element as the pivot. It then compares each element with the
 	 * pivot, and if the element is bigger, it is placed to the right of the pivot.
 	 * The process is repeated until the array is sorted.
-	 * Author: Microsoft Copilot, edited by Ryan Howie
+	 * @author Microsoft Copilot, edited by Ryan Howie
 	 * @param shapes represents a list of shapes being passed into the method
 	 */
 	public static void quickSort(Shape[] shapes) {
@@ -304,7 +312,7 @@ public class Sort
 	 * chooses the last element as the pivot. It then compares each element with the
 	 * pivot, and if the element is bigger, it is placed to the right of the pivot.
 	 * The process is repeated until the array is sorted.
-	 * Author: Microsoft Copilot, edited by Ryan Howie
+	 * @author Microsoft Copilot, edited by Ryan Howie
 	 * @param shapes represents a list of shapes being passed into the method
 	 * @param c represents the compare type to be used for the sorting
 	 * @return Returns the partition index
@@ -348,7 +356,7 @@ public class Sort
 	 * chooses the last element as the pivot. It then compares each element with the
 	 * pivot, and if the element is bigger, it is placed to the right of the pivot.
 	 * The process is repeated until the array is sorted.
-	 * Author: Microsoft Copilot, edited by Ryan Howie
+	 * @author Microsoft Copilot, edited by Ryan Howie
 	 * @param array represents a list of shapes being passed into the method
 	 */
 	public static <T> void quickSort(T[] array, Comparator<T> comparator) {
@@ -363,7 +371,7 @@ public class Sort
 	 * chooses the last element as the pivot. It then compares each element with the
 	 * pivot, and if the element is bigger, it is placed to the right of the pivot.
 	 * The process is repeated until the array is sorted.
-	 * Author: Microsoft Copilot, edited by Ryan Howie
+	 * @author Microsoft Copilot, edited by Ryan Howie
 	 * @param shapes represents a list of shapes being passed into the method
 	 * @param low represents the lowest index of the array
 	 * @param high represents the highest index of the array
@@ -401,7 +409,7 @@ public class Sort
 	 * This method processes through a Radix Sort. It takes a list of numbers, sorts them
 	 * into buckets based off of the digit in a specific index in the number.
 	 * @param shapes represents and Array of Shapes
-	 * @author Dylane
+	 * @author Dylane Cunningham
 	 */
 	public static void radixSort(Shape[] shapes) {
 	    // Creation of the buckets for sorting objects into
@@ -517,7 +525,7 @@ public class Sort
 	 * This method processes through a Radix Sort. It takes a list of numbers, sorts them into buckets based off of the digit in a specific index in the number.
 	 * @param shapes Represents a list of shapes being passed into the method
 	 * @param c Represents the compare type to be used for the sorting
-	 * @author Dylane
+	 * @author Dylane Cunningham
 	 */
 	public static void radixSort(Shape[] shapes, Comparator<Shape> c) {
 	    // Creation of the buckets for sorting objects into
@@ -650,7 +658,7 @@ public class Sort
 	 * @param numStr String being passed into the method 
 	 * @param digitIndex Desired index of the String
 	 * @return Returns the new index if it has been affected by the "."
-	 * @author Dylane
+	 * @author Dylane Cunningham
 	 */
 	private static int getAdjustedIndex(String numStr, int digitIndex) {
 	    int adjustedIndex = digitIndex; // Start with the original index
@@ -681,7 +689,7 @@ public class Sort
 	 * @param methodName String containing the name of the sort method to be called
 	 * @param comparator Comparator that determines which attribute the shapes will be sorted by
 	 * @return A String containing the calculated time the sort took to run
-	 * @author Dylane
+	 * @author Dylane Cunningham
 	 */
 	public static String timeTracker(Shape[] shapes, String methodName, Comparator<Shape> comparator) {
         long start, stop;

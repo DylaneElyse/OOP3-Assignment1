@@ -1,7 +1,6 @@
 package shapes;
 /**
  * Represents a Shape.
- * @author Dylane
  */
 public abstract class Shape implements Comparable<Shape>
 {
