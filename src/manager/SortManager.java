@@ -15,9 +15,9 @@ public class SortManager
 {
 
 	// attributes
-	private String fileName;
-	private char compareType;
-	private char sortType;
+	private String fileName = null;
+	private Character compareType = null;
+	private Character sortType = null;
 	private Shape[] shapes;
 	private Shape[] shapesSorted;
 	private String timeString;
@@ -43,11 +43,20 @@ public class SortManager
 				sortType = s.charAt(2);
 			}
 		}
+
+		
+		if (fileName != null && compareType != null && sortType != null) {
 		loadShapes(fileName);
 		shapesSorted = shapes.clone();
 		
 		sortShapes();
 		System.out.println(timeString);
+		}
+		else {
+			System.out.println("Error: Invalid arguments entered");
+			System.out.println("Arguments can be in any order, but they must contain:");
+			System.out.println("-f\033[3mfileName\033[0m -t\033[3mcompareType\033[0m -s\033[3msortType\033[0m");
+		}
 
 	}
 
@@ -136,9 +145,7 @@ public class SortManager
 	 */
 	private void loadShapes(String file)
 	{
-		
-		String fileString = "res/" + file;
-		File fileName = new File (fileString);
+		File fileName = new File (file);
 		
 		int i = 0;
 		try
