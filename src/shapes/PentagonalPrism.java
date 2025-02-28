@@ -8,7 +8,6 @@ public class PentagonalPrism extends Prism
 
 	/**
 	 * Creates a pentagonal prism shape with a specified height and side length
-	 * 
 	 * @param height height of the pentagonal prism
 	 * @param side side length of the pentagonal prism
 	 */

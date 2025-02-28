@@ -10,8 +10,7 @@ public abstract class Shape implements Comparable<Shape>
 
 	/**
 	 * Creates a shape with specified height.
-	 * 
-	 * @param height height of Shape. (does not need a - in between, the javadoc will auto put one in)
+	 * @param height height of Shape.
 	 */
 	public Shape(double height)
 	{
@@ -58,7 +57,13 @@ public abstract class Shape implements Comparable<Shape>
 		return "Shape [getHeight()=" + getHeight() + ", calcBaseArea()=" + calcBaseArea() + ", calcVolume()="
 				+ calcVolume() + "]";
 	}
-		
+	
+	/**
+	 * Assigns the calculation of the Shape.
+	 * @param s Shape to calculate.
+	 * @param value value to calculate.
+	 * @return returns the calculated value.
+	 */
 	public <T> double assignCalc(T s, String value) {
 		if (value == "Volume") {
 			return ((Shape) s).calcVolume();

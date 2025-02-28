@@ -4,6 +4,7 @@ import java.util.Comparator;
 
 /**
  * Represents a class that will calculate the volume of the shape
+ * and compare the volumes of two shapes
  */
 public class VolumeCompare implements Comparator<Shape>
 {

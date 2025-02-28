@@ -10,7 +10,6 @@ import utilities.Sort;
 
 /**
  * Represents a class that will control the program and determine the sorting method
- * 
  */
 public class SortManager
 {
@@ -53,7 +52,7 @@ public class SortManager
 	}
 
 	/**
-	 * Method that check the sort method and parameters and calls the sort method accordingly
+	 * Method that checks the sort method and parameters and calls the sort method accordingly
 	 */
 	private void sortShapes()
 	{
@@ -199,6 +198,10 @@ public class SortManager
 		}
 	}
 	
+	/**
+	 * Method that prints the results of the sorting algorithm
+	 * @param sortedShapes Array of shapes that have been sorted
+	 */
 	private void printResults(Shape[] sortedShapes) {
 		int i = 1;
 		for(Shape s: sortedShapes) {
@@ -212,7 +215,12 @@ public class SortManager
 			i++;
 		}
 	}
-		
+	
+	/**
+	 * Method that prints the results of the sorting algorithm
+	 * @param sortedShapes Array of shapes that have been sorted
+	 * @param c Comparator that is used to sort the shapes
+	 */
 	private void printResults(Shape[] sortedShapes, Comparator<Shape> c) {
 		int i = 1;
 		String className = c.getClass().getName();

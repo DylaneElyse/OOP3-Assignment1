@@ -10,7 +10,6 @@ public abstract class Prism extends Shape
 
 	/**
 	 * Creates a prism shape with a specified height and side length
-	 * 
 	 * @param height height of the prism
 	 * @param side side length of the prism
 	 */
@@ -22,7 +21,6 @@ public abstract class Prism extends Shape
 
 	/**
 	 * Method that returns the side length of the prism
-	 * 
 	 * @return returns the side length of the prism
 	 */
 	public double getSide()

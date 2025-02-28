@@ -10,7 +10,6 @@ public class Cone extends Shape
 
 	/**
 	 * Creates a cone shape with a specified height and radius
-	 * 
 	 * @param height represents the height of the cone
 	 * @param radius represents the radius of the cone
 	 */
@@ -22,19 +21,20 @@ public class Cone extends Shape
 
 	/**
 	 * Method that will return the radius of the cone
-	 * 
 	 * @return returns the radius of the cone
 	 */
 	public double getRadius()
 	{
 		return radius;
 	}
+	
 
 	@Override
 	public double calcBaseArea()
 	{
 		return Math.PI * (getRadius() * getRadius());
 	}
+
 
 	@Override
 	public double calcVolume()

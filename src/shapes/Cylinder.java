@@ -10,7 +10,6 @@ public class Cylinder extends Shape
 
 	/**
 	 * Creates a cylinder shape with a specified height and radius
-	 * 
 	 * @param height height of the cylinder
 	 * @param radius radius of the cylinder
 	 */
@@ -22,7 +21,6 @@ public class Cylinder extends Shape
 
 	/**
 	 * Method that returns the radius of the cylinder
-	 * 
 	 * @return returns the radius of the cylinder
 	 */
 	public double getRadius()
@@ -30,7 +28,6 @@ public class Cylinder extends Shape
 		return radius;
 	}
 
-	// if Override, it does not need javadoc
 	@Override
 	public double calcBaseArea()
 	{

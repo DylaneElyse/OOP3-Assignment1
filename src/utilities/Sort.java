@@ -112,6 +112,12 @@ public class Sort
 	        }         
 	}
 	
+	/**
+	 * This method processes through an Insertion Sort. It takes an array of shapes, and
+	 * compares each element with the one before it. If the latter height is bigger, they
+	 * switch positions. This process is repeated until the array is sorted.
+	 * @param shapes represents a list of shapes being passed into the method
+	 */
 	public static void insertionSort(Shape[] array)
 	{
 		long start, stop;
@@ -130,23 +136,28 @@ public class Sort
 		        System.out.println("Insertion Sort run time was: " + (stop - start) + " miliseconds");
     }
 	
+	/** 
+	 * This method processes through an Insertion Sort. It takes an array of shapes, and
+	 * compares each element with the one before it. If the latter comparison factor is
+	 * bigger, they switch positions. This process is repeated until the array is sorted.
+	 * @param shapes represents a list of shapes being passed into the method
+	 * @param c represents the compare type to be used for the sorting
+	 */
 	public static void insertionSort(Shape[] array, Comparator<Shape> c) {
 	    for (int i = 1; i < array.length; i++) {
-	        Shape key = array[i]; // Current element to be inserted
-	        int j = i - 1; // Index of the last element in the sorted portion
+	        Shape key = array[i];
+	        int j = i - 1;
 
-	        // Shift elements greater than `key` to the right
 	        while (j >= 0 && c.compare(array[j], key) < 0) {
 	            array[j + 1] = array[j];
 	            j = j - 1;
 	        }
 
-	        // Insert `key` into its correct position
 	        array[j + 1] = key;
 	    }
 	}
 
-		/**
+	/**
 	 * This method processes through a Merge Sort. It takes an array of shapes, breaks
 	 * them down into smaller arrays until each contains only one element. Then, it merges
 	 * pair of arrays while ordering its elements.
@@ -283,44 +294,69 @@ public class Sort
 			}		
 	}
 
-
+	/**
+	 * This method processes through a Quick Sort. It takes an array of shapes, and
+	 * chooses the last element as the pivot. It then compares each element with the
+	 * pivot, and if the element is bigger, it is placed to the right of the pivot.
+	 * The process is repeated until the array is sorted.
+	 * @param shapes represents a list of shapes being passed into the method
+	 */
 	public static void quickSort(Shape[] shapes) {
 	    if (shapes == null || shapes.length == 0) {
-	        return; // Handle empty or null array
+	        return;
 	    }
 	    quickSort(shapes, 0, shapes.length - 1);
 	}
-
+	
+	/**
+	 * This method processes through a Quick Sort. It takes an array of shapes, and
+	 * chooses the last element as the pivot. It then compares each element with the
+	 * pivot, and if the element is bigger, it is placed to the right of the pivot.
+	 * The process is repeated until the array is sorted.
+	 * @param shapes represents a list of shapes being passed into the method
+	 * @param c represents the compare type to be used for the sorting
+	 * @return Returns the partition index
+	 */
 	private static void quickSort(Shape[] shapes, int low, int high) {
 	    if (low < high) {
 	        int partitionIndex = partition(shapes, low, high);
-	        quickSort(shapes, low, partitionIndex - 1); // Sort left subarray
-	        quickSort(shapes, partitionIndex + 1, high); // Sort right subarray
+	        quickSort(shapes, low, partitionIndex - 1);
+	        quickSort(shapes, partitionIndex + 1, high);
 	    }
 	}
-
+	
+	/**
+	 * @param shapes represents a list of shapes being passed into the method
+	 * @param low represents the lowest index of the array
+	 * @param high represents the highest index of the array
+	 * @return Returns the partition index
+	 */
 	private static int partition(Shape[] shapes, int low, int high) {
-	    Shape pivot = shapes[high]; // Choose the last element as the pivot
-	    int i = low - 1; // Index of the smaller element
+	    Shape pivot = shapes[high];
+	    int i = low - 1;
 
 	    for (int j = low; j < high; j++) {
 	        if (shapes[j].compareTo(pivot) > 0) {
 	            i++;
-	            // Swap shapes[i] and shapes[j]
 	            Shape temp = shapes[i];
 	            shapes[i] = shapes[j];
 	            shapes[j] = temp;
 	        }
 	    }
 
-	    // Swap shapes[i + 1] and shapes[high] (pivot)
 	    Shape temp = shapes[i + 1];
 	    shapes[i + 1] = shapes[high];
 	    shapes[high] = temp;
 
-	    return i + 1; // Return the partition index
+	    return i + 1;
 	}
 	
+	/**
+	 * This method processes through a Quick Sort. It takes an array of shapes, and
+	 * chooses the last element as the pivot. It then compares each element with the
+	 * pivot, and if the element is bigger, it is placed to the right of the pivot.
+	 * The process is repeated until the array is sorted.
+	 */
 	public static <T> void quickSort(T[] array, Comparator<T> comparator) {
 	    if (array == null || array.length == 0) {
 	        return;
@@ -328,6 +364,17 @@ public class Sort
 	    quickSort(array, 0, array.length - 1, comparator);
 	}
 
+	/**
+	 * This method processes through a Quick Sort. It takes an array of shapes, and
+	 * chooses the last element as the pivot. It then compares each element with the
+	 * pivot, and if the element is bigger, it is placed to the right of the pivot.
+	 * The process is repeated until the array is sorted.
+	 * @param shapes represents a list of shapes being passed into the method
+	 * @param low represents the lowest index of the array
+	 * @param high represents the highest index of the array
+	 * @param c represents the compare type to be used for the sorting
+	 * @return Returns the partition index
+	 */
 	private static <T> void quickSort(T[] array, int low, int high, Comparator<T> comparator) {
 	    if (low < high) {
 	        int partitionIndex = partition(array, low, high, comparator);
@@ -463,12 +510,6 @@ public class Sort
 	                shapes[reAdd++] = s;
 	            }
 	        }
-
-	        // Debugging: Print the number of shapes in each bucket
-//	        System.out.println("Iteration " + count + ":");
-//	        for (Map.Entry<Integer, ArrayList<Shape>> entry : numbersMap.entrySet()) {
-//	            System.out.println("Bucket " + entry.getKey() + ": " + entry.getValue().size() + " shapes");
-//	        }
 
 	        // Increment count and adjust index
 	        count++;

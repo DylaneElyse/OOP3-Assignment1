@@ -10,7 +10,6 @@ public class Pyramid extends Shape
 
 	/**
 	 * Creates a pyramid shape with a specified height and radius
-	 * 
 	 * @param height height of the pyramid
 	 * @param radius radius of the pyramid
 	 */
@@ -22,7 +21,6 @@ public class Pyramid extends Shape
 
 	/**
 	 * Method that returns the length of the side of the pyramid
-	 * 
 	 * @return returns the side length of the pyramid
 	 */
 	public double getSide()
