@@ -5,10 +5,10 @@ The Shape Sorting Application is a Java console application that reads a list of
 processes the data, and outputs the results to the console.
 
 The application supports the following shapes:
-###Cone
-###Cylinder
-###Prisms: Octagonal Prism, Pentagonal Prism, Square Prism, Triangular Prism
-###Pyramid
+### Cone
+### Cylinder
+### Prisms: Octagonal Prism, Pentagonal Prism, Square Prism, Triangular Prism
+### Pyramid
 
 The list of shapes is read from a pre-formatted text file. The first line indicates the total number of shapes,
 and each subsequent line represents a shape with its dimensions as height and side length or radius.
