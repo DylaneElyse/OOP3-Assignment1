@@ -1,4 +1,0 @@
-3
-Cone 28705.22 8796.832
-SquarePrism 23493.337 6249.476
-TriangularPrism 28004.726 4073.985

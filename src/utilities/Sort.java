@@ -2,19 +2,16 @@ package utilities;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/**
- * Represents a class containing sort methods
- */
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
-
-import shapes.BaseAreaCompare;
 import shapes.Shape;
-import shapes.VolumeCompare;
 
+/**
+ * Represents a class containing sort methods
+ */
 public class Sort
 {
 
@@ -77,11 +74,11 @@ public class Sort
 	            	if (shapes[j].getHeight() > max.getHeight()) {
 	            		max = shapes[j];
 	            	}
-	            if (max.compareTo(shapes[i]) > 0 && (i != j)) {
-		            Shape tmp = shapes[i];
-		            shapes[i] = shapes[j];
-		            shapes[j] = tmp;
-	            }        
+		            if (max.compareTo(shapes[i]) > 0 && (i != j)) {
+			            Shape tmp = shapes[i];
+			            shapes[i] = shapes[j];
+			            shapes[j] = tmp;
+		            }        
 	            }            
 	        }            
 	}
@@ -103,11 +100,11 @@ public class Sort
 	            	if (shapes[j].calcVolume() > max.calcVolume()) {
 	            		max = shapes[j];
 	            	}
-	            if (c.compare(shapes[i], max) < 0 && (i != j)) {
-		            Shape tmp = shapes[i];
-		            shapes[i] = shapes[j];
-		            shapes[j] = tmp;
-	            }        
+		            if (c.compare(shapes[i], max) < 0 && (i != j)) {
+			            Shape tmp = shapes[i];
+			            shapes[i] = shapes[j];
+			            shapes[j] = tmp;
+		            }        
 	            }
 	        }         
 	}
@@ -120,8 +117,6 @@ public class Sort
 	 */
 	public static void insertionSort(Shape[] array)
 	{
-		long start, stop;
-		start = System.currentTimeMillis();
 		for (int i = 1; i < array.length; i++) {
 			Shape key = array[i];
 	        int j = i - 1;
@@ -132,8 +127,6 @@ public class Sort
             }
             array[j + 1] = key;
         }
-		        stop = System.currentTimeMillis();
-		        System.out.println("Insertion Sort run time was: " + (stop - start) + " miliseconds");
     }
 	
 	/** 
@@ -152,7 +145,6 @@ public class Sort
 	            array[j + 1] = array[j];
 	            j = j - 1;
 	        }
-
 	        array[j + 1] = key;
 	    }
 	}
@@ -195,8 +187,6 @@ public class Sort
 	 * @param rightHalf represents a list of shapes being passed into the method
 	 */
 	public static void merge(Shape[] shapes, Shape[] leftHalf, Shape[] rightHalf) {
-		
-
 			int leftSize = leftHalf.length;
 			int rightSize = rightHalf.length;
 			int i=0, j=0, k=0;
@@ -213,8 +203,7 @@ public class Sort
 				k++;
 			}
 			
-			while (i < leftSize)
-			{
+			while (i < leftSize) {
 				shapes[k] = leftHalf[i];
 				k++; i++;
 			}
@@ -282,8 +271,7 @@ public class Sort
 				k++;
 			}
 			
-			while (i < leftSize)
-			{
+			while (i < leftSize) {
 				shapes[k] = leftHalf[i];
 				k++; i++;
 			}
@@ -403,8 +391,10 @@ public class Sort
 	    return i + 1;
 	}
 	/**
-	 * This method processes through a Radix Sort. It takes a list of numbers, sorts them into buckets based off of the digit in a specific index in the number.
+	 * This method processes through a Radix Sort. It takes a list of numbers, sorts them
+	 * into buckets based off of the digit in a specific index in the number.
 	 * @param shapes represents and Array of Shapes
+	 * @author Dylane
 	 */
 	public static void radixSort(Shape[] shapes) {
 	    // Creation of the buckets for sorting objects into
@@ -520,6 +510,7 @@ public class Sort
 	 * This method processes through a Radix Sort. It takes a list of numbers, sorts them into buckets based off of the digit in a specific index in the number.
 	 * @param shapes Represents a list of shapes being passed into the method
 	 * @param c Represents the compare type to be used for the sorting
+	 * @author Dylane
 	 */
 	public static void radixSort(Shape[] shapes, Comparator<Shape> c) {
 	    // Creation of the buckets for sorting objects into
@@ -652,6 +643,7 @@ public class Sort
 	 * @param numStr String being passed into the method 
 	 * @param digitIndex Desired index of the String
 	 * @return Returns the new index if it has been affected by the "."
+	 * @author Dylane
 	 */
 	private static int getAdjustedIndex(String numStr, int digitIndex) {
 	    int adjustedIndex = digitIndex; // Start with the original index
@@ -675,6 +667,15 @@ public class Sort
 	    return adjustedIndex;
 	}
 
+	/**
+	 * Method that when called will collect time variables and calculate 
+	 * the total time used to process the sorting method it calls
+	 * @param shapes Shape array being passed into the method
+	 * @param methodName String containing the name of the sort method to be called
+	 * @param comparator Comparator that determines which attribute the shapes will be sorted by
+	 * @return A String containing the calculated time the sort took to run
+	 * @author Dylane
+	 */
 	public static String timeTracker(Shape[] shapes, String methodName, Comparator<Shape> comparator) {
         long start, stop;
         long elapsedTime = 0;

@@ -4,6 +4,9 @@ import manager.SortManager;
 
 /**
  * Main driver of the app
+ * @author Dylane Cunningham, Ryan Howie and Rodrigo Rangel
+ * @since 02-2025
+ * submitted February 28, 2025
  */
 public class AppDriver
 {
