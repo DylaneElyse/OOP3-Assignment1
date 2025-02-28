@@ -113,6 +113,7 @@ public class Sort
 	 * This method processes through an Insertion Sort. It takes an array of shapes, and
 	 * compares each element with the one before it. If the latter height is bigger, they
 	 * switch positions. This process is repeated until the array is sorted.
+	 * @author GeeksForGeeks, edited by Ryan Howie
 	 * @param shapes represents a list of shapes being passed into the method
 	 */
 	public static void insertionSort(Shape[] array)
@@ -133,6 +134,7 @@ public class Sort
 	 * This method processes through an Insertion Sort. It takes an array of shapes, and
 	 * compares each element with the one before it. If the latter comparison factor is
 	 * bigger, they switch positions. This process is repeated until the array is sorted.
+	 * @author GeeksForGeeks, edited by Ryan Howie
 	 * @param shapes represents a list of shapes being passed into the method
 	 * @param c represents the compare type to be used for the sorting
 	 */
@@ -287,6 +289,7 @@ public class Sort
 	 * chooses the last element as the pivot. It then compares each element with the
 	 * pivot, and if the element is bigger, it is placed to the right of the pivot.
 	 * The process is repeated until the array is sorted.
+	 * Author: Microsoft Copilot, edited by Ryan Howie
 	 * @param shapes represents a list of shapes being passed into the method
 	 */
 	public static void quickSort(Shape[] shapes) {
@@ -301,6 +304,7 @@ public class Sort
 	 * chooses the last element as the pivot. It then compares each element with the
 	 * pivot, and if the element is bigger, it is placed to the right of the pivot.
 	 * The process is repeated until the array is sorted.
+	 * Author: Microsoft Copilot, edited by Ryan Howie
 	 * @param shapes represents a list of shapes being passed into the method
 	 * @param c represents the compare type to be used for the sorting
 	 * @return Returns the partition index
@@ -344,6 +348,8 @@ public class Sort
 	 * chooses the last element as the pivot. It then compares each element with the
 	 * pivot, and if the element is bigger, it is placed to the right of the pivot.
 	 * The process is repeated until the array is sorted.
+	 * Author: Microsoft Copilot, edited by Ryan Howie
+	 * @param array represents a list of shapes being passed into the method
 	 */
 	public static <T> void quickSort(T[] array, Comparator<T> comparator) {
 	    if (array == null || array.length == 0) {
@@ -357,6 +363,7 @@ public class Sort
 	 * chooses the last element as the pivot. It then compares each element with the
 	 * pivot, and if the element is bigger, it is placed to the right of the pivot.
 	 * The process is repeated until the array is sorted.
+	 * Author: Microsoft Copilot, edited by Ryan Howie
 	 * @param shapes represents a list of shapes being passed into the method
 	 * @param low represents the lowest index of the array
 	 * @param high represents the highest index of the array
